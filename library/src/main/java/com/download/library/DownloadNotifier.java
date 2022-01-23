@@ -107,6 +107,7 @@ public class DownloadNotifier {
         String title = getTitle(downloadTask);
         int flags = PendingIntent.FLAG_UPDATE_CURRENT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //Flag indicating that the created PendingIntent should be immutable.
             flags |= PendingIntent.FLAG_IMMUTABLE;
         }
         this.mDownloadTask = downloadTask;
@@ -145,6 +146,7 @@ public class DownloadNotifier {
         intentCancel.putExtra("TAG", url);
         int flags = PendingIntent.FLAG_UPDATE_CURRENT;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //Flag indicating that the created PendingIntent should be immutable.
             flags |= PendingIntent.FLAG_IMMUTABLE;
         }
         PendingIntent pendingIntentCancel = PendingIntent.getBroadcast(context, id * 1000, intentCancel, flags);
@@ -290,6 +292,7 @@ public class DownloadNotifier {
                     setDelecte(null);
                     int flags = PendingIntent.FLAG_UPDATE_CURRENT;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        //Flag indicating that the created PendingIntent should be immutable.
                         flags |= PendingIntent.FLAG_IMMUTABLE;
                     }
                     PendingIntent rightPendIntent = PendingIntent
